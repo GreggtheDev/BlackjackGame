@@ -1,23 +1,35 @@
-import java.util.Objects;
+package blackjack.cards;
 
-public class Deck implements DeckActions{
+import java.util.ArrayList;
+import java.util.Collections;
 
-    private Objects/* you can change this to any type you want*/ myCards;
-    private int numCards;
+public class Deck {
+    private final ArrayList<Card> cards;
 
+    // Constructs a Deck object with 52 cards
+    public Deck() {
+        cards = new ArrayList<>();
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
 
-    @Override
+        for (String suit : suits) {
+            for (String value : values) {
+                cards.add(new Card(suit, value));
+            }
+        }
+    }
+
+    // Shuffles the deck of cards
     public void shuffle() {
-
+        Collections.shuffle(cards);
     }
 
-    @Override
-    public Card dealNextCard() {
-        return null;
-    }
-
-    @Override
-    public void printDeck(int numToPrint) {
-
+    // Deals a card from the deck
+    public Card dealCard() {
+        if (!cards.isEmpty()) {
+            return cards.remove(0);
+        } else {
+            return null;
+        }
     }
 }

@@ -12,3 +12,20 @@ public class Card {
         this.suit = suit;
         this.value = value;
     }
+
+    // Returns the suit of the card
+    public String getSuit() {
+        return suit;
+    }
+
+    // Returns the value of the card
+    public String getValue() {
+        return value;
+    }
+
+    // Returns a string representation of the card
+    @Override
+    public String toString() {
+        return value + " of " + suit;
+    }
+}

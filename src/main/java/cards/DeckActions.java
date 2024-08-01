@@ -1,7 +1,19 @@
-public interface DeckActions {
-    public void shuffle() ;
+package blackjack.cards;
 
-    public Card dealNextCard();
+/**
+ * This class demonstrates basic deck operations such as shuffling and dealing cards.
+ */
+public class DeckActions {
+    public static void main(String[] args) {
+        // Create and shuffle a deck
+        Deck deck = new Deck();
+        deck.shuffle();
 
-    public void printDeck(int numToPrint) ;
+        // Deal and display five cards
+        for (int i = 0; i < 5; i++) {
+            Card card = deck.dealCard();
+            System.out.println(card);
+        }
+    }
 }
+

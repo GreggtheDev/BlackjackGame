@@ -1,34 +1,30 @@
-import java.io.File;
+package blackjack.game;
 
+import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
 
+// Class for game background music
 public class PlayMusic {
-     
-    public void playMusic(String musicLocation) {
-
+    /**
+     * Plays music from the specified file path.
+     *
+     * @param filePath The path to the music file.
+     */
+    public static void playMusic(String filePath) {
         try {
-            File musicPath = new File(musicLocation);
-            
-            if (musicPath.exists()){
+            File musicPath = new File(filePath);
+            if (musicPath.exists()) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
-                FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                gainControl.setValue(-10.0f); // Reduce volume by 10 decibels.
                 clip.start();
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
-                System.out.println("Can't Find File");
+                System.out.println("Can't find file");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
-
-
-
-
 }

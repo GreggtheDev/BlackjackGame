@@ -15,7 +15,7 @@ public class GameRunner {
         System.out.println("Welcome to Blackjack!");
 
         // Play background music
-        PlayMusic.playMusic("CasinoJazz.wav");
+        blackjack.game.PlayMusic.playMusic("CasinoJazz.wav");
 
         // Initialize player and dealer
         Player player = new Player("Player 1", 100);
@@ -97,7 +97,7 @@ public class GameRunner {
                 System.out.println("Dealer wins!");
             } else if (dealerHandValue > 21 || playerHandValue > dealerHandValue) {
                 System.out.println("You win!");
-                player.increaseBalance(bet * 2);
+                player.increaseBalance(bet * 2); // Player wins double the bet amount
             } else {
                 System.out.println("It's a tie!");
                 player.increaseBalance(bet);

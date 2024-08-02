@@ -1,27 +1,26 @@
 package blackjack.game;
 
-import java.io.File;
+import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-// Class for game background music
+/**
+ * This class is used to play background music during the game.
+ */
 public class PlayMusic {
-    /**
-     * Plays music from the specified file path.
-     *
-     * @param filePath The path to the music file.
-     */
     public static void playMusic(String filePath) {
         try {
-            File musicPath = new File(filePath);
-            if (musicPath.exists()) {
+            // Get the URL of the file from the resources directory
+            URL musicPath = PlayMusic.class.getClassLoader().getResource(filePath);
+            if (musicPath != null) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
+                clip.loop(Clip.LOOP_CONTINUOUSLY); // Loop the music
             } else {
-                System.out.println("Can't find file");
+                System.out.println("Can't find file: " + filePath);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

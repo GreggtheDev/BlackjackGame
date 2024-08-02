@@ -1,4 +1,4 @@
-Sure! Below is an example of a `README.md` file for your Blackjack game project. This file provides an overview of the project, setup instructions, and usage information.
+
 
 ### README.md
 

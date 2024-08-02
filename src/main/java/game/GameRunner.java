@@ -14,6 +14,9 @@ public class GameRunner {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Blackjack!");
 
+        // Play background music
+        PlayMusic.playMusic("CasinoJazz.wav");
+
         // Initialize player and dealer
         Player player = new Player("Player 1", 100);
         Player dealer = new Player("Dealer", 0);

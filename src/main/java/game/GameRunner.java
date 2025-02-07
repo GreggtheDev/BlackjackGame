@@ -1,7 +1,7 @@
-package blackjack.game;
+package game;
 
-import blackjack.cards.Deck;
-import blackjack.players.Player;
+import game.Deck;
+import game.Player;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

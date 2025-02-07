@@ -1,4 +1,4 @@
-package blackjack.cards;
+package cards;
 
 /**
  * This class represents a playing card with a suit and a value.
